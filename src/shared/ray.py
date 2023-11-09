@@ -338,13 +338,15 @@ def get_liblo_address(url: str) -> Optional[liblo.Address]:
         msg = "%r is not a valid osc url" % url
         raise argparse.ArgumentTypeError(msg)
 
-    if valid_url:
-        try:
-            liblo.send(address, '/ping')
-            return address
-        except BaseException:
-            msg = "%r is an unknown osc url" % url
-            raise argparse.ArgumentTypeError(msg)
+    return address
+
+    # if valid_url:
+    #     try:
+    #         liblo.send(address, '/ping')
+    #         return address
+    #     except BaseException:
+    #         msg = "%r is an unknown osc url" % url
+    #         raise argparse.ArgumentTypeError(msg)
 
 def get_liblo_address_from_port(port:int) -> Optional[liblo.Address]:
     try:
@@ -363,13 +365,15 @@ def get_liblo_address_from_port(port:int) -> Optional[liblo.Address]:
         msg = "%i is not a valid osc port" % port
         raise argparse.ArgumentTypeError(msg)
 
-    if valid_port:
-        try:
-            liblo.send(address, '/ping')
-            return address
-        except BaseException:
-            msg = "%i is an unknown osc port" % port
-            raise argparse.ArgumentTypeError(msg)
+    return address
+
+    # if valid_port:
+    #     try:
+    #         liblo.send(address, '/ping')
+    #         return address
+    #     except BaseException:
+    #         msg = "%i is an unknown osc port" % port
+    #         raise argparse.ArgumentTypeError(msg)
 
 def are_same_osc_port(url1, url2):
     if url1 == url2:
