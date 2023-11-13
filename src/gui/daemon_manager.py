@@ -216,7 +216,7 @@ class DaemonManager(QObject):
                 "impossible for GUI to launch daemon. server missing.\n")
 
         # start process
-        arguments = ['--gui-url', str(server.url),
+        arguments = ['--gui-port', str(server.port),
                      '--gui-pid', str(os.getpid()),
                      '--osc-port', str(self._port),
                      '--session-root', CommandLineArgs.session_root]
